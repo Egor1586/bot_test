@@ -1,10 +1,11 @@
 import asyncio
 import logging
 
-from message_handler import bot, dp
+import bot_modules as bm
 
 async def main():
-    await dp.start_polling(bot)
+    bm.dp.include_router(bm.router)
+    await bm.dp.start_polling(bm.bot)
     
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
